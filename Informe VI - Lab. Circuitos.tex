@@ -120,11 +120,13 @@ Se registraron en la Tabla~\ref{tab:resultados-ac} los valores correspondientes 
     \centering
     \caption{Resultados de la medición de la señal AC en el osciloscopio}
     \label{tab:resultados-ac}
-    \begin{tabular}{|c|c|}
-        \hline
-        VOLTAJE PICO & 20.0 V  \\ \hline
-        VOLTAJE PICO A PICO    & 72.0 V     \\ \hline
-        VOLTAJE EFECTIVO-RMS   & 25.4 V     \\ \hline
+    \begin{tabular}{@{}lc@{}}
+        \toprule
+        Magnitud & Valor \\ \midrule
+        Voltaje pico & \SI{20.0}{\volt} \\
+        Voltaje pico a pico & \SI{72.0}{\volt} \\
+        Voltaje efectivo (RMS) & \SI{25.4}{\volt} \\
+        \bottomrule
     \end{tabular}
 \end{table}
 
@@ -141,15 +143,16 @@ Con la ayuda del generador se configuraron las señales enlistadas en la Tabla~\
     \centering
     \caption{Registro de las señales obtenidas con el generador.}
     \label{tab:frecuencia}
-    \begin{tabular}{|c|c|c|c|}
-        \hline
-        Tipo de onda & Frecuencia & Base de tiempo & Período medido \\ \hline
-        Senoidal & \SI{100}{\hertz} & \SI{10}{\milli\second} & \SI{10}{\milli\second} \\ \hline
-        Senoidal & \SI{120}{\kilo\hertz} & \SI{10}{\micro\second} & \SI{8}{\micro\second} \\ \hline
-        Rampa & \SI{1}{\mega\hertz} & \SI{50}{\nano\second} & \SI{1}{\micro\second} \\ \hline
-        Rampa & \SI{1.5}{\kilo\hertz} & \SI{1}{\milli\second} & \SI{665}{\micro\second} \\ \hline
+    \begin{tabular}{@{}llll@{}}
+        \toprule
+        Tipo de onda & Frecuencia & Base de tiempo & Período medido \\ \midrule
+        Senoidal & \SI{100}{\hertz} & \SI{10}{\milli\second} & \SI{10}{\milli\second} \\
+        Senoidal & \SI{120}{\kilo\hertz} & \SI{10}{\micro\second} & \SI{8}{\micro\second} \\
+        Rampa & \SI{1}{\mega\hertz} & \SI{50}{\nano\second} & \SI{1}{\micro\second} \\
+        Rampa & \SI{1.5}{\kilo\hertz} & \SI{1}{\milli\second} & \SI{665}{\micro\second} \\
+        \bottomrule
     \end{tabular}
-\end{table}%
+\end{table}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.75\linewidth]{1.jpg}
