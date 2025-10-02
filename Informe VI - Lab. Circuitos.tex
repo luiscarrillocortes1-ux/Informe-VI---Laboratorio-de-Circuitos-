@@ -1,3 +1,247 @@
+
+% main.tex
+\documentclass[conference]{IEEEtran} % usa [journal] para artículos de revista
+
+% ---- Paquetes recomendados ----
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+% Comenta la siguiente línea si tu paper será en inglés
+\usepackage[spanish,es-noshorthands]{babel}
+
+\usepackage{graphicx}    % figuras
+\usepackage{amsmath,amssymb}
+\usepackage{siunitx}     % unidades
+\usepackage{booktabs}    % tablas bonitas
+\usepackage{url}         % URLs en referencias
+\usepackage{cite}        % manejo de citas IEEE
+\usepackage{microtype}   % mejor tipografía
+\usepackage{float}
+
+% ---- Información del artículo ----
+\title{Título del Artículo en Formato IEEE}
+
+\author{
+\IEEEauthorblockN{Nombre Apellido\IEEEauthorrefmark{1}, Nombre Apellido\IEEEauthorrefmark{2}}
+\IEEEauthorblockA{\IEEEauthorrefmark{1}Afiliación 1 \\
+Email: autor1@ejemplo.com}
+\IEEEauthorblockA{\IEEEauthorrefmark{2}Afiliación 2 \\
+Email: autor2@ejemplo.com}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Este es el resumen (abstract). Debe ser conciso y describir brevemente el problema, el método y los resultados principales.
+\end{abstract}
+
+
+\section{Introducción}
+Contexto del problema, motivación, contribuciones y estructura del documento.
+
+\section{Objetivos}
+\begin{itemize}
+  \item Implementar y simular un circuito serie con varias resistencias para calcular los valores de voltaje en cada una de ellas.
+  \item Determinar la resistencia equivalente en un circuito serie.
+  \item Comparar los valores teóricos, simulados e implementados de los voltajes y corriente en un circuito serial resistivo.
+  \item Determinar la potencia disipada por cada resistor en un circuito serial.
+  \item Identificar las partes principales del osciloscopio y comprender su función.
+  \item Configurar adecuadamente los controles del osciloscopio para visualizar señales.
+  \item Medir características de señales eléctricas como amplitud, frecuencia, período, fase y forma de onda utilizando el osciloscopio.
+  \item Interpretar correctamente las formas de onda observadas.
+  \item Familiarizarse con el funcionamiento de un generador de señales.
+\end{itemize}
+
+
+\section{Marco Teórico}
+\subsection{Osciloscopio}
+El osciloscopio es un dispositivo capaz de graficar señales eléctricas variables con el tiempo. La gráfica generada presenta un eje horizontal (eje x) y un eje vertical (eje y); el primero representa el tiempo mientras que el segundo el voltaje. Entre sus múltiples aplicaciones las más recurrentes son: determinar directamente el periodo, voltaje y frecuencia de una señal; distinguir qué partes de una señal son DC y cuáles AC; encontrar averías en un circuito; medir la fase entre dos señales, etc.~\cite{ugrOsciloscopio}
+
+\subsection{Amplitud}
+Dícese de la magnitud de una señal, usualmente medidas en valores brutos de un convertidor analógico-digital (ADC) o expresada en unidades físicas relacionadas con las señales análogas iniciales.~\cite{signalAmplitude}
+
+\subsection{Periodo}
+El periodo de una señal es un ciclo realizado por un pulso de señal. Es identificado a través de técnicas de segmentación de periodos, las cuales aíslan los picos y hallan puntos de división para la extracción de los datos.~\cite{periodicSignal}
+
+\subsection{Voltaje efectivo (RMS)}
+Es un método para expresar una forma de onda senoidal de voltaje como un voltaje equivalente, que representa la magnitud del voltaje DC que producirá el mismo efecto o disipación de potencia en el circuito.~\cite{voltajeRMS}
+
+\subsection{Frecuencia}
+La frecuencia es la cantidad de ciclos de una señal por segundo. Normalmente se mide en hercios (Hz) y para hallar su magnitud basta con calcular el inverso del periodo~\cite{hertz}:
+\begin{equation}
+    f = \frac{1}{T}
+\end{equation}
+
+\subsection{Generador de señales}
+Haciendo justicia a su nombre, un generador de señales es un dispositivo electrónico capaz de generar señales eléctricas en forma de onda, tanto periódicas como no periódicas. Su uso se basa en la facilidad con la que se pueden expresar los parámetros de la generación de ondas y manejo de voltajes. En la industria se utiliza para el diseño, prueba y reparación de otros dispositivos electrónicos.~\cite{distronGenerador}
+
+\subsection{Transformador reductor de voltaje}
+Al hacer pasar a través de él una corriente AC, este es capaz de reducir su voltaje hasta uno predeterminado. Funcionan a través de la inducción electromagnética, siendo que al aplicarse una tensión se da un flujo magnético en su núcleo de hierro. La susodicha corriente viajará desde el devanado primario al secundario; tal movimiento genera una fuerza electromagnética en el devanado secundario, dando paso así a la reducción del voltaje.~\cite{transformadorEndesa}
+
+\subsection{Puente de diodos}
+También conocido como puente rectificador o de Graetz, es un circuito capaz de rectificar ondas completas. Para formarlo se necesitan cuatro diodos conectados en serie.~\cite{puenteDiodos}
+
+
+\section{Desarrollo}
+\subsection{Metodología I: Medición de voltaje}
+Se calibra el osciloscopio para que la onda de sobre el eje x.
+La fuente de voltaje fue ajustada a 5 V y sus cables se conectaron a la sonda del osciloscopio, la cual se colocó en el canal 1. Posteriormente, se configuró la perilla de control vertical en 2 V/div, observándose en la pantalla la señal correspondiente. Finalmente, la perilla de ajuste vertical fue variada con el fin de analizar los cambios en la forma de onda. Véase la Figura 1.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{5V.JPG}
+    \caption{Señal del osciloscopio conectado a una fuente de 5V}
+    \label{fig:placeholder}
+\end{figure}
+\subsection{Metodología II: medición de voltaje AC}
+Se monta el circuito que indica la guía experimental (véase la Figura~2), empleando una fuente de alimentación de 120 V a una frecuencia de 60 Hz. El multímetro se conectó en los puntos A y B, registrando en su pantalla la medición correspondiente.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Figura 4.jpg}
+    \caption{Simulación circuito medición de voltaje a la salida de transformador}
+    \label{fig:placeholder}
+\end{figure}
+En la Figura~3 se observa cómo se toma el voltaje a la salida del transformador, lo que proporciona 13.3 V en AC.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{WhatsApp Image 2025-10-01 at 9.40.29 PM.jpeg}
+    \caption{Voltaje obtenido}
+    \label{fig:placeholder}
+\end{figure}
+Al desconectarlo y conectar ahora los nodos A y B en el osciloscopio se obtuvo la siguiente señal:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{WhatsApp Image 2025-10-01 at 9.59.50 PM.jpeg}
+    \caption{señal AC Osciloscopio}
+    \label{fig:placeholder}
+\end{figure}
+Se registraron en la Tabla 1 los valores correspondientes al voltaje pico, voltaje pico a pico y voltaje efectivo-RMS.
+\begin{table}[H]
+    \centering
+    \caption{Resultados medición señal AC Osciloscopio.}
+    \label{tab:ejemplo}
+    \begin{tabular}{|c|c|}
+        \hline
+        VOLTAJE PICO & 20.0 V  \\ \hline
+        VOLTAJE PICO A PICO    & 72.0 V     \\ \hline
+        VOLTAJE EFECTIVO-RMS   & 25.4 V     \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsection{Metodología III: medición de frecuencia}
+Se conectó el generador de señales directamente al canal~1 del osciloscopio, tal como se ilustra en la Figura~\ref{fig:montaje-frecuencia}. A partir de esta conexión se fijaron los parámetros de la señal según lo indicado en la guía experimental: amplitud pico a pico de \SI{6}{\volt}, offset de \SI{0}{\volt} y desfase nulo. Posteriormente, se ajustó la base de tiempo del instrumento para conseguir una visualización estable de cada forma de onda.
+\begin{figure}[H]
+    \centering
+    \framebox[0.75\linewidth]{\rule{0pt}{3.5cm}}
+    \caption{Montaje empleado en la medición de frecuencia.}
+    \label{fig:montaje-frecuencia}
+\end{figure}
+Con la ayuda del generador se configuraron las señales enlistadas en la Tabla~\ref{tab:frecuencia}, registrando en el osciloscopio tanto la base de tiempo seleccionada (tiempo/división) como el período resultante. Las formas de onda obtenidas se muestran en las Figuras~\ref{fig:frecuencia-senoidal-100hz}--\ref{fig:frecuencia-rampa-1k5hz}, lo que permite comparar la respuesta del equipo frente a cambios en la frecuencia y el tipo de señal.%
+\begin{table}[H]
+    \centering
+    \caption{Registro de las señales obtenidas con el generador.}
+    \label{tab:frecuencia}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Tipo de onda & Frecuencia & Base de tiempo & Período medido \\ \hline
+        Senoidal & \SI{100}{\hertz} & \SI{10}{\milli\second} & \SI{10}{\milli\second} \\ \hline
+        Senoidal & \SI{120}{\kilo\hertz} & \SI{10}{\micro\second} & \SI{8}{\micro\second} \\ \hline
+        Rampa & \SI{1}{\mega\hertz} & \SI{50}{\nano\second} & \SI{1}{\micro\second} \\ \hline
+        Rampa & \SI{1.5}{\kilo\hertz} & \SI{1}{\milli\second} & \SI{665}{\micro\second} \\ \hline
+    \end{tabular}
+\end{table}%
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{1.jpg}
+    \caption{Captura de la señal senoidal de \SI{100}{\hertz}.}
+    \label{fig:frecuencia-senoidal-100hz}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{2.jpg}
+    \caption{Captura de la señal senoidal de \SI{120}{\kilo\hertz}.}
+    \label{fig:frecuencia-senoidal-120khz}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{3.jpg}
+    \caption{Captura de la señal en rampa de \SI{1}{\mega\hertz}.}
+    \label{fig:frecuencia-rampa-1mhz}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{4.jpg}
+    \caption{Captura de la señal en rampa de \SI{1.5}{\kilo\hertz}.}
+    \label{fig:frecuencia-rampa-1k5hz}
+\end{figure}
+\subsection{Metodología IV: montaje de carga y descarga del condensador}
+Se armó el circuito RC serie indicado en la guía práctica sobre un protoboard, conectando en serie la resistencia de \SI{1}{\kilo\ohm} con el condensador proporcionado en el laboratorio. El generador de funciones se acopló al nodo de entrada del circuito y se condujo el retorno a tierra común, mientras que las puntas del osciloscopio quedaron listas para registrar la señal aplicada y la respuesta del condensador. Como se aprecia en la Figura~\ref{fig:montaje-rc}, el montaje mantiene una conexión compacta entre la resistencia, el condensador y las terminales de medición. Además, se replicó el circuito en un entorno SPICE con una fuente cuadrada de \SI{5}{\volt} a \SI{1}{\kilo\hertz}, conservando los valores de la resistencia y el condensador para contrastar la evolución temporal del voltaje almacenado. Las Figuras~\ref{fig:simulacion-rc-esquematico} y~\ref{fig:simulacion-rc-respuesta} recogen el diagrama esquemático utilizado y la respuesta numérica de carga y descarga del condensador.
+\begin{figure}[H]
+    \centering
+    \framebox[0.75\linewidth]{\rule{0pt}{3.5cm}}
+    \caption{Montaje físico del circuito RC para el estudio de carga y descarga.}
+    \label{fig:montaje-rc}
+\end{figure}
+\begin{figure}[H]
+    \centering
+\includegraphics[width=0.75\linewidth]{Simulacion 1.jpg}
+    \caption{Esquemático de la simulación del circuito RC.}
+    \label{fig:simulacion-rc-esquematico}
+\end{figure}
+\begin{figure}[H]
+    \centering
+\includegraphics[width=0.75\linewidth]{Simulacion 2.jpg}
+    \caption{Respuesta simulada del voltaje en el condensador.}
+    \label{fig:simulacion-rc-respuesta}
+\end{figure}
+\section{Resultados}
+\subsection{Figura de ejemplo}
+
+
+
+\section{Discusión}
+Analiza implicaciones, limitaciones y posibles mejoras.
+
+\section{Conclusiones}
+Resumen de hallazgos y trabajo futuro.
+
+\section*{Agradecimientos}
+(Optativo) Reconoce apoyos, proyectos o personas.
+
+\begin{thebibliography}{00}
+
+\bibitem{ugrOsciloscopio}
+Universidad de Granada, ``El osciloscopio,'' [En línea]. Disponible en: \url{https://www.ugr.es/~juanki/osciloscopio.htm}. [Consultado: 2~oct.~2025].
+
+\bibitem{signalAmplitude}
+``Signal amplitude -- an overview,'' \emph{ScienceDirect Topics}. [En línea]. Disponible en: \url{https://www.sciencedirect.com/topics/computer-science/signal-amplitude}. [Consultado: 2~oct.~2025].
+
+\bibitem{periodicSignal}
+``Periodic signal -- an overview,'' \emph{ScienceDirect Topics}. [En línea]. Disponible en: \url{https://www.sciencedirect.com/topics/engineering/periodic-signal}. [Consultado: 2~oct.~2025].
+
+\bibitem{voltajeRMS}
+``¿Qué es el voltaje RMS?,'' \emph{Aprender Sobre la Electrónica}, s.~f. [En línea]. Disponible en: \url{https://www.learningaboutelectronics.com/Articulos/Voltaje-RMS.php}. [Consultado: 2~oct.~2025].
+
+\bibitem{hertz}
+The Editors of Encyclopaedia Britannica, ``Hertz,'' \emph{Encyclopaedia Britannica}. [En línea]. Disponible en: \url{https://www.britannica.com/science/hertz}. [Consultado: 2~oct.~2025].
+
+\bibitem{distronGenerador}
+Distron, ``Generador de señal: características y aplicaciones,'' \emph{Blog de Distron}, 17~ago.~2022, act. 9~jul.~2025. [En línea]. Disponible en: \url{https://distron.es/generador-de-senal/}. [Consultado: 2~oct.~2025].
+
+\bibitem{transformadorEndesa}
+``El transformador eléctrico,'' Fundación Endesa -- Endesa Educa, s.~f. [En línea]. Disponible en: \url{https://fundacionendesa.org/es/educacion/endesa-educa/recursos/corrientes-alternas-con-un-transformador-electrico}. [Consultado: 2~oct.~2025].
+
+\bibitem{puenteDiodos}
+``Puente de diodos,'' \emph{MecatrónicaLATAM}, 24~abr.~2021. [En línea]. Disponible en: \url{https://www.mecatronicalatam.com/es/tutoriales/electronica/componentes-electronicos/diodo/puente-de-diodos/}. [Consultado: 2~oct.~2025].
+
+\end{thebibliography}
+
+% \appendices
+% \section{Prueba adicional}
+% Contenido opcional de apéndices.
+
+\end{document}
+
 % main.tex
 \documentclass[conference]{IEEEtran} % usa [journal] para artículos de revista
 
@@ -261,3 +505,4 @@ Distron, ``Generador de señal: características y aplicaciones,'' \emph{Blog de
 % Contenido opcional de apéndices.
 
 \end{document}
+
