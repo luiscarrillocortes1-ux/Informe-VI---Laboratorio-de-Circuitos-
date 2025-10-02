@@ -184,8 +184,35 @@ Finalmente, se capturaron las pantallas del osciloscopio para cada configuració
     \label{fig:frecuencia-rampa-1k5hz}
 \end{figure}
 
+\subsection{Metodología IV: montaje de carga y descarga del condensador}
+Se armó el circuito RC serie indicado en la guía práctica, empleando una resistencia de \SI{1}{\kilo\ohm} y el condensador suministrado en el laboratorio (de acuerdo con la referencia propuesta por el docente). La Figura~\ref{fig:montaje-rc} deja el espacio para documentar el montaje realizado sobre el protoboard, identificando los nodos A (salida del generador) y B (nodo del condensador).
 
+\begin{figure}[H]
+    \centering
+    \framebox[0.75\linewidth]{\rule{0pt}{3.5cm}}
+    \caption{Montaje físico del circuito RC para el estudio de carga y descarga.}
+    \label{fig:montaje-rc}
+\end{figure}
 
+Conectado el generador de funciones al nodo~A, se configuró una señal cuadrada de \SI{100}{\hertz} con amplitud de \SI{5}{\volt} pico a pico y offset nulo. El canal~1 del osciloscopio se fijó sobre el nodo~A para monitorear la señal de excitación, mientras que el canal~2 se conectó al nodo~B con el fin de observar la evolución temporal del voltaje en el condensador. Para registrar adecuadamente el régimen transitorio se ajustaron la base de tiempo y la escala vertical hasta distinguir el frente de carga y la caída de descarga dentro de la pantalla.
+
+Posteriormente, se activó el disparo (\emph{trigger}) en el flanco positivo de la señal del canal~1, garantizando que cada barrido mostrara el mismo punto de partida. Con dicha configuración se capturó la respuesta de la resistencia, reservando el espacio de la Figura~\ref{fig:senal-resistencia} para la fotografía correspondiente. Seguidamente se concentró la atención en el canal del condensador, tomando la captura ilustrada en la Figura~\ref{fig:senal-condensador} y midiendo con los cursores el intervalo necesario para que el voltaje alcanzara el \(63\,\%\) y el \(37\,\%\) del valor máximo durante los procesos de carga y descarga, respectivamente.
+
+Finalmente, se comparó el tiempo obtenido experimentalmente con la constante de tiempo teórica \(\tau = RC\), comentando cualquier discrepancia atribuible a tolerancias de los componentes, caída interna del generador o a la resistencia equivalente de las puntas de medición. Todas las mediciones y observaciones complementarias se consignaron en el cuaderno de laboratorio para su análisis posterior.
+
+\begin{figure}[H]
+    \centering
+    \framebox[0.75\linewidth]{\rule{0pt}{3.5cm}}
+    \caption{Captura del voltaje medido sobre la resistencia del circuito RC.}
+    \label{fig:senal-resistencia}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \framebox[0.75\linewidth]{\rule{0pt}{3.5cm}}
+    \caption{Captura del voltaje de carga y descarga en el condensador.}
+    \label{fig:senal-condensador}
+\end{figure}
 
 \section{Resultados}
 \subsection{Figura de ejemplo}
