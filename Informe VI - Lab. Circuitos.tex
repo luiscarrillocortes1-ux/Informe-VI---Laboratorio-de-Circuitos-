@@ -130,6 +130,59 @@ Se registraron en la Tabla 1 los valores correspondientes al voltaje pico, volta
     \end{tabular}
 \end{table}
 
+\subsection{Metodología III: medición de frecuencia}
+Se conectó el generador de señales directamente al canal~1 del osciloscopio, tal como se ilustra en la Figura~\ref{fig:montaje-frecuencia}. A partir de esta conexión se fijaron los parámetros de la señal según lo indicado en la guía experimental: amplitud pico a pico de \SI{6}{\volt}, offset de \SI{0}{\volt} y desfase nulo. Posteriormente, se ajustó la base de tiempo del instrumento para conseguir una visualización estable de cada forma de onda.
+
+\begin{figure}[H]
+    \centering
+    \framebox[0.75\linewidth]{\rule{0pt}{3.5cm}}
+    \caption{Espacio para la fotografía del montaje empleado en la medición de frecuencia.}
+    \label{fig:montaje-frecuencia}
+\end{figure}
+
+Con la ayuda del generador se configuraron las señales enlistadas en la Tabla~\ref{tab:frecuencia}, registrando en el osciloscopio tanto la base de tiempo seleccionada (tiempo/división) como el período resultante. Cada forma de onda se documentó mediante capturas de pantalla, destinadas a ser incorporadas en las Figuras~\ref{fig:frecuencia-senoidal-100hz}--\ref{fig:frecuencia-rampa-1k5hz}. Estas evidencias permiten comparar la respuesta del equipo frente a cambios en la frecuencia y el tipo de señal.%
+\begin{table}[H]
+    \centering
+    \caption{Registro de las señales obtenidas con el generador.}
+    \label{tab:frecuencia}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Tipo de onda & Frecuencia & Base de tiempo & Período medido \\ \hline
+        Senoidal & \SI{100}{\hertz} & \SI{10}{\milli\second} & \SI{10}{\milli\second} \\ \hline
+        Senoidal & \SI{120}{\kilo\hertz} & \SI{10}{\micro\second} & \SI{8}{\micro\second} \\ \hline
+        Rampa & \SI{1}{\mega\hertz} & \SI{50}{\nano\second} & \SI{1}{\micro\second} \\ \hline
+        Rampa & \SI{1.5}{\kilo\hertz} & \SI{1}{\milli\second} & \SI{665}{\micro\second} \\ \hline
+    \end{tabular}
+\end{table}%
+Finalmente, se capturaron las pantallas del osciloscopio para cada configuración. A continuación se dejan los espacios correspondientes para incorporar las imágenes obtenidas durante la práctica.%
+\begin{figure}[H]
+    \centering
+    \framebox[0.75\linewidth]{\rule{0pt}{3.5cm}}
+    \caption{Captura de la señal senoidal de \SI{100}{\hertz}.}
+    \label{fig:frecuencia-senoidal-100hz}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \framebox[0.75\linewidth]{\rule{0pt}{3.5cm}}
+    \caption{Captura de la señal senoidal de \SI{120}{\kilo\hertz}.}
+    \label{fig:frecuencia-senoidal-120khz}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \framebox[0.75\linewidth]{\rule{0pt}{3.5cm}}
+    \caption{Captura de la señal en rampa de \SI{1}{\mega\hertz}.}
+    \label{fig:frecuencia-rampa-1mhz}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \framebox[0.75\linewidth]{\rule{0pt}{3.5cm}}
+    \caption{Captura de la señal en rampa de \SI{1.5}{\kilo\hertz}.}
+    \label{fig:frecuencia-rampa-1k5hz}
+\end{figure}
+
 
 
 \section{Resultados}
