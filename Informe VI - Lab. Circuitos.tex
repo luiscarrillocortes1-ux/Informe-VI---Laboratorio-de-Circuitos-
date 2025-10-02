@@ -53,6 +53,35 @@ Contexto del problema, motivación, contribuciones y estructura del documento~\c
 \end{itemize}
 
 
+\section{Marco Teórico}
+\subsection{Osciloscopio}
+El osciloscopio es un dispositivo capaz de graficar señales eléctricas variables con el tiempo. La gráfica generada presenta un eje horizontal (eje x) y un eje vertical (eje y); el primero representa el tiempo mientras que el segundo el voltaje. Entre sus múltiples aplicaciones las más recurrentes son: determinar directamente el periodo, voltaje y frecuencia de una señal; distinguir qué partes de una señal son DC y cuáles AC; encontrar averías en un circuito; medir la fase entre dos señales, etc.~[1]
+
+\subsection{Amplitud}
+Dícese de la magnitud de una señal, usualmente medidas en valores brutos de un convertidor analógico-digital (ADC) o expresada en unidades físicas relacionadas con las señales análogas iniciales.~[2]
+
+\subsection{Periodo}
+El periodo de una señal es un ciclo realizado por un pulso de señal. Es identificado a través de técnicas de segmentación de periodos, las cuales aíslan los picos y hallan puntos de división para la extracción de los datos.~[3]
+
+\subsection{Voltaje efectivo (RMS)}
+Es un método para expresar una forma de onda senoidal de voltaje como un voltaje equivalente, que representa la magnitud del voltaje DC que producirá el mismo efecto o disipación de potencia en el circuito.~[4]
+
+\subsection{Frecuencia}
+La frecuencia es la cantidad de ciclos de una señal por segundo. Normalmente se mide en hercios (Hz) y para hallar su magnitud basta con calcular el inverso del periodo~[5]:
+\begin{equation}
+    f = \frac{1}{T}
+\end{equation}
+
+\subsection{Generador de señales}
+Haciendo justicia a su nombre, un generador de señales es un dispositivo electrónico capaz de generar señales eléctricas en forma de onda, tanto periódicas como no periódicas. Su uso se basa en la facilidad con la que se pueden expresar los parámetros de la generación de ondas y manejo de voltajes. En la industria se utiliza para el diseño, prueba y reparación de otros dispositivos electrónicos.~[6]
+
+\subsection{Transformador reductor de voltaje}
+Al hacer pasar a través de él una corriente AC, este es capaz de reducir su voltaje hasta uno predeterminado. Funcionan a través de la inducción electromagnética, siendo que al aplicarse una tensión se da un flujo magnético en su núcleo de hierro. La susodicha corriente viajará desde el devanado primario al secundario; tal movimiento genera una fuerza electromagnética en el devanado secundario, dando paso así a la reducción del voltaje.~[7]
+
+\subsection{Puente de diodos}
+También conocido como puente rectificador o de Graetz, es un circuito capaz de rectificar ondas completas. Para formarlo se necesitan cuatro diodos conectados en serie.~[8]
+
+
 \section{Desarrollo}
 \subsection{Metodología I: Medición de voltaje}
 Se calibra el osciloscopio para que la onda de sobre el eje x.
