@@ -37,7 +37,7 @@ Este es el resumen (abstract). Debe ser conciso y describir brevemente el proble
 
 
 \section{Introducción}
-Contexto del problema, motivación, contribuciones y estructura del documento~\cite{ieeehowto,lamport94}.
+Contexto del problema, motivación, contribuciones y estructura del documento.
 
 \section{Objetivos}
 \begin{itemize}
@@ -55,31 +55,31 @@ Contexto del problema, motivación, contribuciones y estructura del documento~\c
 
 \section{Marco Teórico}
 \subsection{Osciloscopio}
-El osciloscopio es un dispositivo capaz de graficar señales eléctricas variables con el tiempo. La gráfica generada presenta un eje horizontal (eje x) y un eje vertical (eje y); el primero representa el tiempo mientras que el segundo el voltaje. Entre sus múltiples aplicaciones las más recurrentes son: determinar directamente el periodo, voltaje y frecuencia de una señal; distinguir qué partes de una señal son DC y cuáles AC; encontrar averías en un circuito; medir la fase entre dos señales, etc.~[1]
+El osciloscopio es un dispositivo capaz de graficar señales eléctricas variables con el tiempo. La gráfica generada presenta un eje horizontal (eje x) y un eje vertical (eje y); el primero representa el tiempo mientras que el segundo el voltaje. Entre sus múltiples aplicaciones las más recurrentes son: determinar directamente el periodo, voltaje y frecuencia de una señal; distinguir qué partes de una señal son DC y cuáles AC; encontrar averías en un circuito; medir la fase entre dos señales, etc.~\cite{ugrOsciloscopio}
 
 \subsection{Amplitud}
-Dícese de la magnitud de una señal, usualmente medidas en valores brutos de un convertidor analógico-digital (ADC) o expresada en unidades físicas relacionadas con las señales análogas iniciales.~[2]
+Dícese de la magnitud de una señal, usualmente medidas en valores brutos de un convertidor analógico-digital (ADC) o expresada en unidades físicas relacionadas con las señales análogas iniciales.~\cite{signalAmplitude}
 
 \subsection{Periodo}
-El periodo de una señal es un ciclo realizado por un pulso de señal. Es identificado a través de técnicas de segmentación de periodos, las cuales aíslan los picos y hallan puntos de división para la extracción de los datos.~[3]
+El periodo de una señal es un ciclo realizado por un pulso de señal. Es identificado a través de técnicas de segmentación de periodos, las cuales aíslan los picos y hallan puntos de división para la extracción de los datos.~\cite{periodicSignal}
 
 \subsection{Voltaje efectivo (RMS)}
-Es un método para expresar una forma de onda senoidal de voltaje como un voltaje equivalente, que representa la magnitud del voltaje DC que producirá el mismo efecto o disipación de potencia en el circuito.~[4]
+Es un método para expresar una forma de onda senoidal de voltaje como un voltaje equivalente, que representa la magnitud del voltaje DC que producirá el mismo efecto o disipación de potencia en el circuito.~\cite{voltajeRMS}
 
 \subsection{Frecuencia}
-La frecuencia es la cantidad de ciclos de una señal por segundo. Normalmente se mide en hercios (Hz) y para hallar su magnitud basta con calcular el inverso del periodo~[5]:
+La frecuencia es la cantidad de ciclos de una señal por segundo. Normalmente se mide en hercios (Hz) y para hallar su magnitud basta con calcular el inverso del periodo~\cite{hertz}:
 \begin{equation}
     f = \frac{1}{T}
 \end{equation}
 
 \subsection{Generador de señales}
-Haciendo justicia a su nombre, un generador de señales es un dispositivo electrónico capaz de generar señales eléctricas en forma de onda, tanto periódicas como no periódicas. Su uso se basa en la facilidad con la que se pueden expresar los parámetros de la generación de ondas y manejo de voltajes. En la industria se utiliza para el diseño, prueba y reparación de otros dispositivos electrónicos.~[6]
+Haciendo justicia a su nombre, un generador de señales es un dispositivo electrónico capaz de generar señales eléctricas en forma de onda, tanto periódicas como no periódicas. Su uso se basa en la facilidad con la que se pueden expresar los parámetros de la generación de ondas y manejo de voltajes. En la industria se utiliza para el diseño, prueba y reparación de otros dispositivos electrónicos.~\cite{distronGenerador}
 
 \subsection{Transformador reductor de voltaje}
-Al hacer pasar a través de él una corriente AC, este es capaz de reducir su voltaje hasta uno predeterminado. Funcionan a través de la inducción electromagnética, siendo que al aplicarse una tensión se da un flujo magnético en su núcleo de hierro. La susodicha corriente viajará desde el devanado primario al secundario; tal movimiento genera una fuerza electromagnética en el devanado secundario, dando paso así a la reducción del voltaje.~[7]
+Al hacer pasar a través de él una corriente AC, este es capaz de reducir su voltaje hasta uno predeterminado. Funcionan a través de la inducción electromagnética, siendo que al aplicarse una tensión se da un flujo magnético en su núcleo de hierro. La susodicha corriente viajará desde el devanado primario al secundario; tal movimiento genera una fuerza electromagnética en el devanado secundario, dando paso así a la reducción del voltaje.~\cite{transformadorEndesa}
 
 \subsection{Puente de diodos}
-También conocido como puente rectificador o de Graetz, es un circuito capaz de rectificar ondas completas. Para formarlo se necesitan cuatro diodos conectados en serie.~[8]
+También conocido como puente rectificador o de Graetz, es un circuito capaz de rectificar ondas completas. Para formarlo se necesitan cuatro diodos conectados en serie.~\cite{puenteDiodos}
 
 
 \section{Desarrollo}
@@ -146,8 +146,33 @@ Resumen de hallazgos y trabajo futuro.
 \section*{Agradecimientos}
 (Optativo) Reconoce apoyos, proyectos o personas.
 
-\bibliographystyle{IEEEtran}
-\bibliography{refs} % archivo refs.bib
+\begin{thebibliography}{00}
+
+\bibitem{ugrOsciloscopio}
+Universidad de Granada, ``El osciloscopio,'' [En línea]. Disponible en: \url{https://www.ugr.es/~juanki/osciloscopio.htm}. [Consultado: 2~oct.~2025].
+
+\bibitem{signalAmplitude}
+``Signal amplitude -- an overview,'' \emph{ScienceDirect Topics}. [En línea]. Disponible en: \url{https://www.sciencedirect.com/topics/computer-science/signal-amplitude}. [Consultado: 2~oct.~2025].
+
+\bibitem{periodicSignal}
+``Periodic signal -- an overview,'' \emph{ScienceDirect Topics}. [En línea]. Disponible en: \url{https://www.sciencedirect.com/topics/engineering/periodic-signal}. [Consultado: 2~oct.~2025].
+
+\bibitem{voltajeRMS}
+``¿Qué es el voltaje RMS?,'' \emph{Aprender Sobre la Electrónica}, s.~f. [En línea]. Disponible en: \url{https://www.learningaboutelectronics.com/Articulos/Voltaje-RMS.php}. [Consultado: 2~oct.~2025].
+
+\bibitem{hertz}
+The Editors of Encyclopaedia Britannica, ``Hertz,'' \emph{Encyclopaedia Britannica}. [En línea]. Disponible en: \url{https://www.britannica.com/science/hertz}. [Consultado: 2~oct.~2025].
+
+\bibitem{distronGenerador}
+Distron, ``Generador de señal: características y aplicaciones,'' \emph{Blog de Distron}, 17~ago.~2022, act. 9~jul.~2025. [En línea]. Disponible en: \url{https://distron.es/generador-de-senal/}. [Consultado: 2~oct.~2025].
+
+\bibitem{transformadorEndesa}
+``El transformador eléctrico,'' Fundación Endesa -- Endesa Educa, s.~f. [En línea]. Disponible en: \url{https://fundacionendesa.org/es/educacion/endesa-educa/recursos/corrientes-alternas-con-un-transformador-electrico}. [Consultado: 2~oct.~2025].
+
+\bibitem{puenteDiodos}
+``Puente de diodos,'' \emph{MecatrónicaLATAM}, 24~abr.~2021. [En línea]. Disponible en: \url{https://www.mecatronicalatam.com/es/tutoriales/electronica/componentes-electronicos/diodo/puente-de-diodos/}. [Consultado: 2~oct.~2025].
+
+\end{thebibliography}
 
 % \appendices
 % \section{Prueba adicional}
