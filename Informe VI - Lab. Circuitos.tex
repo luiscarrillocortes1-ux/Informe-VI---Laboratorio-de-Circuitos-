@@ -174,14 +174,13 @@ Con la ayuda del generador se configuraron las señales enlistadas en la Tabla~\
     \label{fig:frecuencia-rampa-1k5hz}
 \end{figure}
 \subsection{Metodología IV: montaje de carga y descarga del condensador}
-Se armó el circuito RC serie indicado en la guía práctica sobre un protoboard, conectando en serie la resistencia de \SI{1}{\kilo\ohm} con el condensador proporcionado en el laboratorio. El generador de funciones se acopló al nodo de entrada del circuito y se condujo el retorno a tierra común, mientras que las puntas del osciloscopio quedaron listas para registrar la señal aplicada y la respuesta del condensador. Como se aprecia en la Figura~\ref{fig:montaje-rc}, el montaje mantiene una conexión compacta entre la resistencia, el condensador y las terminales de medición.
+Se armó el circuito RC serie indicado en la guía práctica sobre un protoboard, conectando en serie la resistencia de \SI{1}{\kilo\ohm} con el condensador proporcionado en el laboratorio. El generador de funciones se acopló al nodo de entrada del circuito y se condujo el retorno a tierra común, mientras que las puntas del osciloscopio quedaron listas para registrar la señal aplicada y la respuesta del condensador. Como se aprecia en la Figura~\ref{fig:montaje-rc}, el montaje mantiene una conexión compacta entre la resistencia, el condensador y las terminales de medición. Además, se replicó el circuito en un entorno SPICE con una fuente cuadrada de \SI{5}{\volt} a \SI{1}{\kilo\hertz}, conservando los valores de la resistencia y el condensador para contrastar la evolución temporal del voltaje almacenado. Las Figuras~\ref{fig:simulacion-rc-esquematico} y~\ref{fig:simulacion-rc-respuesta} recogen el diagrama esquemático utilizado y la respuesta numérica de carga y descarga del condensador.
 \begin{figure}[H]
     \centering
     \framebox[0.75\linewidth]{\rule{0pt}{3.5cm}}
     \caption{Montaje físico del circuito RC para el estudio de carga y descarga.}
     \label{fig:montaje-rc}
 \end{figure}
-Para complementar el análisis experimental se elaboró una simulación del circuito en un entorno SPICE, replicando los valores de la fuente cuadrada de \SI{5}{\volt} a \SI{1}{\kilo\hertz}, la resistencia de \SI{1}{\kilo\ohm} y el condensador utilizado en el laboratorio. La Figura~\ref{fig:simulacion-rc-esquematico} muestra el diagrama esquemático empleado, mientras que en la Figura~\ref{fig:simulacion-rc-respuesta} se observa la respuesta temporal del voltaje en el condensador durante las etapas de carga y descarga.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{Simulacion 1}
