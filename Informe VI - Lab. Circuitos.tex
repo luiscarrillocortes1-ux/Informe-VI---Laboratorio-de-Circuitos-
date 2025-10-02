@@ -1,44 +1,43 @@
-\documentclass[conference]{IEEEtran}
+% main.tex
+\documentclass[conference]{IEEEtran} % usa [journal] para artículos de revista
 
-% Idioma y codificacion
-\usepackage[spanish,es-nodecimaldot]{babel}
-\usepackage[T1]{fontenc}
+% ---- Paquetes recomendados ----
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+% Comenta la siguiente línea si tu paper será en inglés
+\usepackage[spanish,es-noshorthands]{babel}
 
-% Utilidades
-\usepackage{graphicx}
-\usepackage{booktabs}
+\usepackage{graphicx}    % figuras
 \usepackage{amsmath,amssymb}
-\usepackage{siunitx}
-\usepackage{hyperref}
+\usepackage{siunitx}     % unidades
+\usepackage{booktabs}    % tablas bonitas
+\usepackage{url}         % URLs en referencias
+\usepackage{cite}        % manejo de citas IEEE
+\usepackage{microtype}   % mejor tipografía
 \usepackage{float}
-\usepackage{enumitem}
 
-\sisetup{locale = ES, per-mode=symbol}
-\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue}
+% ---- Información del artículo ----
+\title{Título del Artículo en Formato IEEE}
 
-% Datos (editar)
-\newcommand{\titulo}{Practica IV: Divisores de Voltaje}
-\newcommand{\autorA}{Duvan Rosas}
-\newcommand{\autorB}{Luis Carrillo}
-\newcommand{\autorC}{Sofia Muñoz}
-\newcommand{\afiliacion}{Universidad Militar Nueva Granada--- Laboratorio de Circuitos}
-
-
-\title{\titulo}
-\author{\IEEEauthorblockN{\autorA\,\IEEEauthorrefmark{1}, \autorB\,\IEEEauthorrefmark{1}}\IEEEauthorblockA{\IEEEauthorrefmark{1}\afiliacion\\ Email: \{\correoA,\,\correoB\}}}
+\author{
+\IEEEauthorblockN{Nombre Apellido\IEEEauthorrefmark{1}, Nombre Apellido\IEEEauthorrefmark{2}}
+\IEEEauthorblockA{\IEEEauthorrefmark{1}Afiliación 1 \\
+Email: autor1@ejemplo.com}
+\IEEEauthorblockA{\IEEEauthorrefmark{2}Afiliación 2 \\
+Email: autor2@ejemplo.com}
+}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Se implement\'o y analiz\'o un divisor de voltaje resistivo de cinco elementos, contrastando resultados te\'oricos, simulados (Proteus) y medidos en laboratorio. Primero se verific\'o la relaci\'on ideal de divisi\'on y se cuantific\'o el efecto de carga al considerar la impedancia de medici\'on. Se registraron tensiones, corrientes y potencias por resistencia, y se compararon con los c\'alculos correspondientes. Adem\'as, se resolvi\'o un ejercicio de dise\~no imponiendo particiones de tensi\'on 1/2, 1/4, 1/8 y 1/16 en la cadena, obteniendo relaciones de resistencias 8:4:2:1:1 a partir de $R_1=2.1\,\mathrm{M\Omega}$ y $V_{in}=9\,\mathrm{V}$. Las discrepancias entre metodolog\'ias fueron coherentes con tolerancias de componentes e incertidumbre instrumental.
+Este es el resumen (abstract). Debe ser conciso y describir brevemente el problema, el método y los resultados principales.
 \end{abstract}
 
-% (Se omiten palabras clave por solicitud)
 
 \section{Introducción}
-El divisor de voltaje permite obtener una fracción del voltaje de entrada usando resistencias en serie. Esta práctica valida el modelo ideal y el efecto de carga, y organiza el desarrollo de acuerdo con la guía oficial de la práctica \cite{ref:guia}.
+Contexto del problema, motivación, contribuciones y estructura del documento~\cite{ieeehowto,lamport94}.
 
 \section{Objetivos}
 \begin{itemize}
@@ -53,233 +52,76 @@ El divisor de voltaje permite obtener una fracción del voltaje de entrada usand
   \item Familiarizarse con el funcionamiento de un generador de se\~nales.
 \end{itemize}
 
-% (Se omite la sección de materiales y equipos según indicación.)
 
-\section{Marco teórico}
-Un divisor resistivo ideal consta de resistencias en serie por las que circula la misma corriente. La relación de división depende únicamente de la proporción entre resistencias.
-Para el divisor ideal con $R_1$ y $R_2$ en serie y salida sobre $R_2$ \cite{ref:khan}:
-\begin{equation}
-  V_{o} = V_{in}\,\frac{R_2}{R_1 + R_2}.
-\end{equation}
-Con carga $R_\mathrm{L}$ en paralelo con $R_2$ (divisor cargado; véase \cite{ref:khan}):
-\begin{equation}
-  V_{o} = V_{in}\,\frac{R_2\parallel R_\mathrm{L}}{R_1 + (R_2\parallel R_\mathrm{L})},\quad R_2\parallel R_\mathrm{L}=\frac{R_2 R_\mathrm{L}}{R_2+R_\mathrm{L}}.
-\end{equation}
-De forma equivalente, se puede ver $R_1$ como resistencia serie de la fuente y el par $R_2\parallel R_\mathrm{L}$ como impedancia de carga. La impedancia de entrada del instrumento ($R_\mathrm{in}$) debe considerarse parte de la carga efectiva: $R_2\parallel R_\mathrm{L}\parallel R_\mathrm{in}$, lo que tiende a subestimar $V_o$ si $R_\mathrm{in}$ no es suficientemente alta.
-
-La potencia disipada en cada resistor es $P_i=I^2R_i=\dfrac{V_i^2}{R_i}$, con $\sum_i V_i=V_{in}$ en lazo ideal. La tolerancia de resistencias y la incertidumbre de los instrumentos afectan la repetibilidad y el error relativo de las mediciones.
-El error relativo:
-\begin{equation}
-  \text{Error \%} = 100\,\frac{|V_{o,\,med} - V_{o,\,teo}|}{V_{o,\,teo}}\, .
-\end{equation}
-
-
-\section{Metodología}
-\label{sec:metodologia}
-\begin{enumerate}[label=\alph*)]
-  \item Teórica (cálculo analítico). Se parte de ley de Ohm y división de voltaje para estimar tensiones, corrientes y potencias en cada resistencia.
-  \begin{table}[H]
+\section{Desarrollo}
+\subsection{Metodología I: Medición de voltaje}
+Se calibra el osciloscopio para que la onda de sobre el eje x.
+La fuente de voltaje fue ajustada a 5 V y sus cables se conectaron a la sonda del osciloscopio, la cual se colocó en el canal 1. Posteriormente, se configuró la perilla de control vertical en 2 V/div, observándose en la pantalla la señal correspondiente. Finalmente, la perilla de ajuste vertical fue variada con el fin de analizar los cambios en la forma de onda. Véase la Figura 1.
+\begin{figure}[H]
     \centering
-    \begin{tabular}{@{}lllll@{}}
-      \toprule
-      Elemento & R (k\si{\ohm}) & V (V) & I (\si{\micro\ampere}) & P (\si{\micro\watt}) \\
-      \midrule
-      R1 & 56,00 & 0,62 & 11,07 & 6,86 \\
-      R2 & 82,00 & 0,90 & 10,98 & 9,88 \\
-      R3 & 39,00 & 0,43 & 11,03 & 4,74 \\
-      R4 & 470,00 & 5,11 & 10,87 & 55,55 \\
-      R5 & 270,00 & 2,99 & 11,07 & 33,10 \\
-      Sumas & 917,00 & 10,05 & 10,96 & 110,15 \\
-      \bottomrule
-    \end{tabular}
-    \caption{Resultados te\'oricos por elemento.}
-    \label{tab:teoricos}
-  \end{table}
+    \includegraphics[width=0.75\linewidth]{5V.JPG}
+    \caption{Señal del osciloscopio conectado a una fuente de 5V}
+    \label{fig:placeholder}
+\end{figure}
 
-  \item Simulación (Proteus). Se replica el circuito y se registran las magnitudes en los mismos puntos de medición que en el cálculo.
-  \begin{figure}[H]
+\subsection{Metodología II: medición de voltaje AC}
+Se monta el circuito que dice la guia experimental (veáse la figura 2), empleando una fuente de alimentación de 120 V a una frecuencia de 60 Hz. El multímetro se conectó en los puntos A y B, registrando en su pantalla la medición correspondiente.
+
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\columnwidth]{Montaje en el simulador .png}
-    \caption{Circuito simulado en Proteus.}
-    \label{fig:proteus}
-  \end{figure}
-  \begin{table}[H]
+    \includegraphics[width=0.75\linewidth]{Figura 4.jpg}
+    \caption{Simulación circuito medición de voltaje a la salida de transformador}
+    \label{fig:placeholder}
+\end{figure}
+En la figura 3, se puede observar como se toma el voltaje a la salida del transformador, lo que nos da 13.3 V en AC 
+\begin{figure}[H]
     \centering
-    \begin{tabular}{@{}lllll@{}}
-      \toprule
-      Elemento & R (k\si{\ohm}) & V (V) & I (\si{\micro\ampere}) & P (\si{\micro\watt}) \\
-      \midrule
-      R1 & 56,00 & 0,61 & 10,91 & 6,66 \\
-      R2 & 82,00 & 0,89 & 10,91 & 9,76 \\
-      R3 & 39,00 & 0,43 & 10,91 & 4,64 \\
-      R4 & 470,00 & 5,13 & 10,91 & 55,92 \\
-      R5 & 270,00 & 2,94 & 10,91 & 32,12 \\
-      Sumas & 917,00 & 10,00 & 10,91 & 109,10 \\
-      \bottomrule
-    \end{tabular}
-    \caption{Resultados de simulaci\'on en Proteus.}
-    \label{tab:sim}
-  \end{table}
-
-  \item Medición en banco. Se implementa el circuito en protoboard y se miden tensiones y corrientes con multímetro.
-  \begin{table}[H]
+    \includegraphics[width=0.5\linewidth]{WhatsApp Image 2025-10-01 at 9.40.29 PM.jpeg}
+    \caption{Voltaje obtenido}
+    \label{fig:placeholder}
+\end{figure}
+Al desconectarlo y conectar ahora los nodos A y B en el osciloscopio nos dio que la señal obtenida fue: 
+\begin{figure}[H]
     \centering
-    \begin{tabular}{@{}lllll@{}}
-      \toprule
-      Elemento & R (k\si{\ohm}) & V (V) & I (\si{\micro\ampere}) & P (\si{\micro\watt}) \\
-      \midrule
-      R1 & 55,95 & 0,61 & 10,87 & 6,61 \\
-      R2 & 81,80 & 0,89 & 10,86 & 9,64 \\
-      R3 & 39,60 & 0,43 & 10,91 & 4,71 \\
-      R4 & 470,20 & 5,03 & 10,70 & 53,81 \\
-      R5 & 270,80 & 2,93 & 10,82 & 31,69 \\
-      Sumas & 918,35 & 9,89 & 10,76 & 106,37 \\
-      \bottomrule
-    \end{tabular}
-    \caption{Resultados medidos en banco.}
-    \label{tab:med}
-  \end{table}
-  \begin{figure}[H]
-    \centering
-    % \includegraphics[width=\columnwidth]{montaje}
-    \caption{Montaje experimental en protoboard.}
-    \label{fig:montaje}
-  \end{figure}
-% (continua el listado de metodologias con el diseño)
+    \includegraphics[width=0.75\linewidth]{WhatsApp Image 2025-10-01 at 9.59.50 PM.jpeg}
+    \caption{señal AC Osciloscopio}
+    \label{fig:placeholder}
+\end{figure}
 
-\item Diseño del divisor (Vin=9\,V, R1=2.1\,M\si{\ohm})
-\textbf{Planteamiento y restricciones}. Se desea un divisor de cinco resistencias en serie tal que:
-\begin{itemize}
-  \item Tras $R_1$ el nodo intermedio esté a la mitad de la entrada: $V_{n1}=\tfrac{1}{2}V_{in}$.
-  \item Las caídas en $R_4$ y $R_5$ sean iguales y cada una valga $\tfrac{1}{16}V_{in}$.
-  \item $V_{in}=\SI{9}{\volt}$ y se fija $R_1=\SI{2.1}{\mega\ohm}$.
-\end{itemize}
-
-\textbf{Relación de caídas y proporción de resistencias}. Sea $V_{Ri}$ la caída en $R_i$. Imponemos las fracciones de caída:
-\[
-  V_{R1}:V_{R2}:V_{R3}:V_{R4}:V_{R5} = \tfrac{1}{2} : \tfrac{1}{4} : \tfrac{1}{8} : \tfrac{1}{16} : \tfrac{1}{16}.
-\]
-En serie $I$ es común y $V_{Ri}=I\,R_i\ \Rightarrow\ V_{Ri}\propto R_i$. Por lo tanto
-\[
-  R_1:R_2:R_3:R_4:R_5 = 8:4:2:1:1.
-\]
-
-\textbf{Escalado con $R_1$ y cálculos numéricos}. Sea $R_u$ la unidad de proporción. Como $R_1=8R_u=\SI{2.1}{\mega\ohm}$ se obtiene $R_u=\SI{0.2625}{\mega\ohm}$. Así:
-\[
-  \begin{aligned}
-  &R_2=4R_u=\SI{1.05}{\mega\ohm},\quad R_3=2R_u=\SI{0.525}{\mega\ohm},\\
-  &R_4=R_u=\SI{0.2625}{\mega\ohm},\quad R_5=R_u=\SI{0.2625}{\mega\ohm}.
-  \end{aligned}
-\]
-La resistencia total $R_T=\sum_i R_i=16R_u=\SI{4.2}{\mega\ohm}$. Por ley de Ohm, la corriente de reposo del divisor es
-\[
-  I = \frac{V_{in}}{R_T} = \frac{\SI{9}{V}}{\SI{4.2}{M\ohm}} \approx \SI{2.143}{\micro A}.
-\]
-Las caídas individuales resultan $V_{Ri}=I\,R_i$ y los nodos descendiendo desde la entrada satisfacen $V_{n1}=\SI{4.5}{V}$, $V_{n2}=\SI{2.25}{V}$, $V_{n3}=\SI{1.125}{V}$, $V_{n4}=\SI{0.5625}{V}$, $V_{n5}=0\,\mathrm{V}$. Se resume en la siguiente tabla.
-
+Se registraron en la Tabla 1 los valores correspondientes al voltaje pico, voltaje pico a pico y voltaje efectivo-RMS.
 \begin{table}[H]
-  \centering
-  \begin{tabular}{@{}llll@{}}
-    \toprule
-    Elemento & $R$ (M\si{\ohm}) & $V_{Ri}$ (V) & Nodo inferior (V) \\
-    \midrule
-    R1 & 2.10 & 4.50 & 4.50 \\
-    R2 & 1.05 & 2.25 & 2.25 \\
-    R3 & 0.525 & 1.125 & 1.125 \\
-    R4 & 0.2625 & 0.5625 & 0.5625 \\
-    R5 & 0.2625 & 0.5625 & 0.000 \\
-    \bottomrule
-  \end{tabular}
-    \caption{Dise\~no del divisor: tensiones de nodo.}
-    \label{tab:diseno_nodos}
+    \centering
+    \caption{Resultados medición señal AC Osciloscopio.}
+    \label{tab:ejemplo}
+    \begin{tabular}{|c|c|}
+        \hline
+        VOLTAJE PICO & 20.0 V  \\ \hline
+        VOLTAJE PICO A PICO    & 72.0 V     \\ \hline
+        VOLTAJE EFECTIVO-RMS   & 25.4 V     \\ \hline
+    \end{tabular}
 \end{table}
 
-\textbf{Potencias y verificación}. La potencia en cada resistor es $P_i=I^2R_i$. Con $I\approx\SI{2.143}{\micro A}$ se obtiene lo siguiente:
-\begin{table}[H]
-  \centering
-  \begin{tabular}{@{}lll@{}}
-    \toprule
-    Elemento & $R$ (M\si{\ohm}) & $P_i$ (\si{\micro W}) \\
-    \midrule
-    R1 & 2.10 & 9.65 \\
-    R2 & 1.05 & 4.83 \\
-    R3 & 0.525 & 2.41 \\
-    R4 & 0.2625 & 1.21 \\
-    R5 & 0.2625 & 1.21 \\
-    \bottomrule
-  \end{tabular}
-    \caption{Dise\~no del divisor: potencias disipasadas.}
-    \label{tab:diseno_pot}
-\end{table}
-Verificación: $\sum_i V_{Ri}=\SI{9}{V}$ y $\sum_i P_i = V_{in}^2/R_T \approx \SI{19.3}{\micro W}$, consistente con los cálculos.
 
-\textbf{Observaciones prácticas}. Al seleccionar valores comerciales (E12/E24), elija los más cercanos a los calculados y recalcule $I$, $V_{Ri}$ y $V_{ni}$. Si existe carga $R_\mathrm{L}$ en el nodo de salida, sustituya $R_5$ por $R_5\parallel R_\mathrm{L}$; para mantener $V_{n4}$, puede incrementarse ligeramente $R_5$ de modo que $R_5\parallel R_\mathrm{L}\approx R_u$.
 
-\end{enumerate}
+\section{Resultados}
+\subsection{Figura de ejemplo}
 
-\section{Resultados y análisis}
-Para facilitar la discusión se comparan primero las magnitudes totales obtenidas por cálculo analítico (\ref{tab:teoricos}), simulación en Proteus (\ref{tab:sim}) y medición en banco (\ref{tab:med}).  A continuación se analiza la linealidad del circuito, se cuantifica el error relativo por elemento y se estima el efecto de carga del multímetro, terminando con comentarios sobre el diseño propuesto.
 
-\subsection{Coherencia global entre teoría, simulación y mediciones}
-La Tabla~\ref{tab:coherencia} resume las sumas de tensiones, corriente y potencias de las Tablas~\ref{tab:teoricos}--\ref{tab:med}.  Las discrepancias son inferiores al 2~\% para tensiones y corrientes y al 3.5~\% en potencia, valores coherentes con la variación de la fuente real (\mbox{$\approx\!9.9$--$10$~V}), la tolerancia de los resistores y la carga del instrumento de medida\cite{ref:guia}.
 
-\begin{table*}[t]
-  \centering
-  \begin{tabular}{@{}lccccc@{}}
-    \toprule
-    Magnitud & Teórico (suma) & Simulación (suma) & Medido (suma) & Error sim. vs.~teórico & Error medido vs.~teórico \\
-    \midrule
-    $\sum V$ (V) & 10.05 & 10.00 & 9.89 & 0.50~\% & 1.59~\% \\
-    $I$ (\si{\micro A}) & 10.96 & 10.91 & 10.76 & 0.46~\% & 1.82~\% \\
-    $\sum P$ (\si{\micro W}) & 110.15 & 109.10 & 106.37 & 0.95~\% & 3.43~\% \\
-    \bottomrule
-  \end{tabular}
-  \caption{Comparación de magnitudes totales obtenidas teóricamente, por simulación y mediante medición en banco.}
-  \label{tab:coherencia}
-\end{table*}
-
-\subsection{Linealidad y ley de Ohm en el divisor}
-En un circuito serie ideal la corriente es la misma en todos los elementos.  Las mediciones muestran valores comprendidos entre \mbox{10.70--10.91\,\si{\micro A}}, muy cerca del valor teórico (\mbox{10.96\,\si{\micro A}}) y del obtenido en Proteus (\mbox{10.91\,\si{\micro A}}).  Ello confirma el comportamiento serie con ligeras variaciones atribuibles a la carga del multímetro cuando se mide “a través” de cada resistencia, efecto que se incrementa en las de mayor valor.  Esta observación es consistente con la ley de Ohm y la división de voltaje discutidas en el marco teórico\cite{ref:khan}.
-
-\subsection{Error relativo por elemento}
-Al calcular el error relativo de las mediciones respecto de los valores teóricos se obtienen promedios (\emph{mean absolute percentage error}) de 1.26~\% para la tensión por resistor, 1.56~\% para la corriente y 2.82~\% para la potencia.  El mayor desvío por elemento se encuentra en \mbox{R5 (270\,k\si{\ohm})}: \mbox{$V$\,$\approx$\,2.0~\%}, \mbox{$I$\,$\approx$\,2.3~\%} y \mbox{$P$\,$\approx$\,4.3~\%}; le sigue \mbox{R4 (470\,k\si{\ohm})} con \mbox{$V$\,$\approx$\,1.6~\%} y \mbox{$P$\,$\approx$\,3.1~\%}.  Que los mayores errores se concentren en las resistencias de valor más alto es esperable: al medir la caída de tensión en R4 y R5, la impedancia de entrada del multímetro (típicamente \mbox{$\sim$10~M\si{\ohm}}) queda en paralelo con el componente, reduciendo la resistencia efectiva y subestimando la caída de tensión y la potencia calculada\cite{ref:guia}.
-
-Esta recomendación coincide con la literatura didáctica, donde se desaconseja emplear resistores demasiado altos o bajos en divisores de voltaje para evitar errores por carga del medidor\cite{ref:aac_measurement}.
-
-\subsection{Estimación del efecto de carga del instrumento}
-Como ejemplo, considérese el caso de \mbox{R4=470\,k\si{\ohm}}.  Al conectar un multímetro con impedancia de entrada \mbox{$R_{\mathrm{in}}\!\approx 10$~M\si{\ohm}} en paralelo se obtiene una resistencia efectiva \mbox{$R_{\mathrm{eq}}=R_4\parallel R_{\mathrm{in}}\approx 449$~k\si{\ohm}}.  De este modo la resistencia total de la cadena desciende a \mbox{$\sim$896\,k\si{\ohm}} y la fracción de tensión en R4 se reduce.  Con \mbox{$V_{\mathrm{in}}\approx 10$~V} se predice \mbox{$V_{R4}\approx 5.0$~V}, valor muy cercano al medido (5.03~V) frente al  valor teórico (5.11~V), lo que supone un error de \mbox{$\approx$1.6~\%}.  Esta coherencia cuantitativa respalda que el error dominante proviene del instrumento de medida más que de la formulación teórica.
-
-\subsection{Potencia disipada y margen de seguridad}
-Las resistencias que más potencia disipan son R4 (\mbox{53.8--55.9\,\si{\micro W}} según medición/simulación) y R5 (\mbox{31.7--33.1\,\si{\micro W}}).  Todas las potencias están muy por debajo de 0.25~W, valor nominal típico de los resistores utilizados, por lo que el margen térmico es amplio y no condiciona el diseño ni la medición.
-
-\subsection{Análisis del diseño propuesto (\texorpdfstring{$V_{in}=9$~V}{Vin=9 V} y \texorpdfstring{$R_1=2{.}1$~M\si{\ohm}}{R1=2.1 MΩ})}
-El diseño establecido en la Sección~\ref{sec:metodologia} fija las fracciones 1/2, 1/4, 1/8 y 1/16 sobre la base de la relación \mbox{8:4:2:1:1}.  Con \mbox{$R_1=2.1$~M\si{\ohm}} y \mbox{$V_{in}=9$~V} se obtienen \mbox{$R_2=1.05$~M\si{\ohm}}, \mbox{$R_3=0.525$~M\si{\ohm}}, \mbox{$R_4=R_5=0.2625$~M\si{\ohm}} y \mbox{$R_T=4.2$~M\si{\ohm}}, lo que arroja una corriente de \mbox{$I\approx 2.14$~\si{\micro A}}.  Los nodos resultantes se muestran en la Tabla~\ref{tab:diseno_nodos}.  Desde el punto de vista de impedancia de salida, el nodo medio (tras R1) presenta una resistencia de Thévenin \mbox{$\approx 1.05$~M\si{\ohm}}; con un multímetro de 10~M\si{\ohm} la lectura se reduce alrededor de 9.5~\%.  En el nodo previo a R5 la resistencia de Thévenin es \mbox{$\approx 246$~k\si{\ohm}} y el error baja a \mbox{2.4~\%}.  Para medir fracciones con error inferior al 1~\% conviene emplear un seguidor de alta impedancia (buffer), un instrumento con \mbox{$R_{\mathrm{in}}\gg 100\,R_{\mathrm{th}}$} (del orden de 100~M\si{\ohm}) o, en su defecto, escalar los valores de las resistencias según la misma proporción siempre que el consumo adicional sea admisible\cite{ref:guia}.
-
-Al aumentar la resistencia de entrada del medidor se minimiza la carga introducida sobre el divisor y se aproxima el comportamiento de un voltímetro ideal\cite{ref:aac_voltmeter}.
-
-\subsection{Montaje y condiciones de prueba}
-El esquema simulado (Figura~\ref{fig:proteus}) y el montaje en protoboard (Figura~\ref{fig:montaje}) concuerdan con el circuito serie descrito en el marco teórico.  La ligera diferencia entre el total de tensiones teórico (10.05~V) y el medido (9.89~V) es coherente con la tensión real de la batería y con el efecto de carga al medir la caída en cada resistencia.
+\section{Discusión}
+Analiza implicaciones, limitaciones y posibles mejoras.
 
 \section{Conclusiones}
-\begin{enumerate}[label=\arabic*.]
-  \item El modelo ideal de divisor de voltaje queda validado: las diferencias entre teoría, simulación y medición son inferiores al 2~\% en tensión y corriente totales, y menores al 3.5~\% en potencia total.  A nivel de cada resistencia, los desvíos típicos se sitúan entre 1 y 3~\%, con máximos del orden de 4~\% en potencia para los resistores de mayor valor (R4–R5).
-  \item La fuente principal de error en las mediciones es el efecto de carga del instrumento.  Al medir la caída en resistores grandes (centenares de kiloohmios), la impedancia de entrada del multímetro (\mbox{$\sim$10~M\si{\ohm}}) se coloca en paralelo y subestima la lectura de $V$ y $P$.  El caso de R4 ilustra bien este fenómeno, con un sesgo \mbox{\approx1.6–2~\%}, en línea con el cálculo \mbox{$R_4\parallel R_{\mathrm{in}}$}\cite{ref:aac_voltmeter}.
-  \item El ejercicio de diseño con \mbox{$V_{in}=9$~V} y \mbox{$R_1=2.1$~M\si{\ohm}} satisface exactamente las fracciones deseadas (8:4:2:1:1), pero su alta impedancia hace que la lectura de los nodos sea muy sensible a la carga: errores del orden de 9.5~\% en el nodo medio y 2.4~\% en el penúltimo nodo con un DMM de 10~M\si{\ohm}.  Para uso práctico se recomienda: (a) utilizar un buffer de alta impedancia (seguidor) para medir nodos sin perturbarlos; (b) reducir los valores de las resistencias manteniendo la proporción si el consumo adicional lo permite; y (c) seleccionar valores comerciales (series E12/E24) y recalcular $I$, $V_i$ y los nodos, o ajustar $R_5$ si existe carga $R_L$ para mantener $V_{n4}$\cite{ref:guia,ref:aac_voltmeter}.
-  \item Las potencias disipadas son muy bajas (\mbox{$\leq56$~\si{\micro W}} por componente), con amplio margen respecto a la potencia nominal de los resistores, por lo que no existen riesgos térmicos ni derivas significativas por autocalentamiento.
-  \item Como buenas prácticas para futuras experiencias de laboratorio y diseños reales se recomienda medir tensiones de nodo con instrumentos cuya impedancia de entrada sea al menos 100 veces la resistencia de Thévenin del nodo o, en su defecto, mediante buffers; definir un presupuesto de errores que contemple tolerancias de resistores, variación de la fuente e incertidumbre instrumental cuando se requiera precisión en las fracciones de voltaje; y documentar la tensión real de la fuente y unificar el método de medición para evitar sesgos por efecto de carga\cite{ref:aac_measurement}.
-\end{enumerate}
+Resumen de hallazgos y trabajo futuro.
 
-\renewcommand{\refname}{Referencias}
-\begin{thebibliography}{9}
-\bibitem{ref:guia}
-Universidad Militar Nueva Granada, "Divisores de Voltaje", Gu\'ia de laboratorio, 2025.
-\bibitem{ref:khan}
-Khan Academy en Espa\~nol, "Divisor de voltaje". Disponible en: \url{https://es.khanacademy.org/science/electrical-engineering/ee-circuit-analysis-topic/ee-resistor-circuits/a/ee-voltage-divider}.
-\bibitem{ref:aac_measurement}
-All About Circuits, "Voltage Divider Circuits Worksheet", en \emph{DC Electric Circuits}.  Disponible en: \url{https://www.allaboutcircuits.com/worksheets/voltage-divider-circuits/},  consultado el 12 de septiembre de 2025.
+\section*{Agradecimientos}
+(Optativo) Reconoce apoyos, proyectos o personas.
 
-\bibitem{ref:aac_voltmeter}
-All About Circuits, "Voltmeter Impact on Measured Circuit", en \emph{DC Metering Circuits}.  Disponible en: \url{https://www.allaboutcircuits.com/textbook/direct-current/chpt-8/voltmeter-impact-measured-circuit/}, consultado el 12 de septiembre de 2025.
-\end{thebibliography}
+\bibliographystyle{IEEEtran}
+\bibliography{refs} % archivo refs.bib
+
+% \appendices
+% \section{Prueba adicional}
+% Contenido opcional de apéndices.
 
 \end{document}
