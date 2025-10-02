@@ -184,6 +184,40 @@ Finalmente, se capturaron las pantallas del osciloscopio para cada configuració
 \end{figure}
 
 
+\subsection{Metodología IV: montaje carga y descarga del condensador}
+Se configuró un circuito RC serie siguiendo las especificaciones indicadas en la guía experimental, conectando la salida del generador de señales al nodo de entrada (punto~A) y ubicando el condensador en derivación respecto a tierra (punto~B). La Figura~\ref{fig:montaje-rc} queda reservada para ilustrar el montaje realizado durante la práctica.%
+\begin{figure}[H]
+    \centering
+    \framebox[0.75\linewidth]{\rule{0pt}{3.5cm}}
+    \caption{Montaje del circuito RC para el estudio de carga y descarga.}
+    \label{fig:montaje-rc}
+\end{figure}%
+Para la caracterización experimental se ajustó el generador a una señal cuadrada de \SI{100}{\hertz} y \SI{5}{\volt} pico a pico, verificando en el osciloscopio tanto la excitación aplicada como la respuesta del condensador. Primero se obtuvo la forma de onda en el punto~A, sobre la resistencia, registrando la señal cuadrada entregada por el generador (Figura~\ref{fig:rc-senal-entrada}). Posteriormente se trasladó la sonda al punto~B para observar la curva de carga y descarga del condensador (Figura~\ref{fig:rc-senal-condensador}).%
+\begin{figure}[H]
+    \centering
+    \framebox[0.75\linewidth]{\rule{0pt}{3.5cm}}
+    \caption{Captura de la señal cuadrada medida en el punto~A del circuito RC.}
+    \label{fig:rc-senal-entrada}
+\end{figure}%
+\begin{figure}[H]
+    \centering
+    \framebox[0.75\linewidth]{\rule{0pt}{3.5cm}}
+    \caption{Captura de la tensión en el condensador (punto~B).}
+    \label{fig:rc-senal-condensador}
+\end{figure}%
+De forma complementaria se replicó el montaje en el simulador, manteniendo los mismos valores de excitación y componentes. Se tomaron capturas de las formas de onda en los puntos~A y~B, mostradas en las Figuras~\ref{fig:rc-simulacion-entrada} y~\ref{fig:rc-simulacion-condensador}, con el objetivo de contrastar el comportamiento teórico con las mediciones experimentales.%
+\begin{figure}[H]
+    \centering
+    \framebox[0.75\linewidth]{\rule{0pt}{3.5cm}}
+    \caption{Simulación de la señal cuadrada aplicada al circuito RC (punto~A).}
+    \label{fig:rc-simulacion-entrada}
+\end{figure}%
+\begin{figure}[H]
+    \centering
+    \framebox[0.75\linewidth]{\rule{0pt}{3.5cm}}
+    \caption{Simulación de la respuesta del condensador en el punto~B.}
+    \label{fig:rc-simulacion-condensador}
+\end{figure}
 
 \section{Resultados}
 \subsection{Figura de ejemplo}
