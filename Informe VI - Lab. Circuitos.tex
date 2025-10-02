@@ -181,6 +181,19 @@ Se armó el circuito RC serie indicado en la guía práctica sobre un protoboard
     \caption{Montaje físico del circuito RC para el estudio de carga y descarga.}
     \label{fig:montaje-rc}
 \end{figure}
+Para complementar el análisis experimental se elaboró una simulación del circuito en un entorno SPICE, replicando los valores de la fuente cuadrada de \SI{5}{\volt} a \SI{1}{\kilo\hertz}, la resistencia de \SI{1}{\kilo\ohm} y el condensador utilizado en el laboratorio. La Figura~\ref{fig:simulacion-rc-esquematico} muestra el diagrama esquemático empleado, mientras que en la Figura~\ref{fig:simulacion-rc-respuesta} se observa la respuesta temporal del voltaje en el condensador durante las etapas de carga y descarga.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Simulacion 1}
+    \caption{Esquemático de la simulación del circuito RC.}
+    \label{fig:simulacion-rc-esquematico}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Simulacion 2}
+    \caption{Respuesta simulada del voltaje en el condensador.}
+    \label{fig:simulacion-rc-respuesta}
+\end{figure}
 \section{Resultados}
 \subsection{Figura de ejemplo}
 
