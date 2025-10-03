@@ -94,7 +94,7 @@ La fuente de voltaje fue ajustada a 5 V y sus cables se conectaron a la sonda de
     \label{fig:senal-5v}
 \end{figure}
 \subsection{Metodología II: medición de voltaje AC}
-Se monta el circuito que indica la guía experimental (véase la Figura~\ref{fig:simulacion-transformador}), empleando una fuente de alimentación de 120 V a una frecuencia de 60 Hz. El multímetro se conectó en los puntos A y B, registrando en su pantalla la medición correspondiente.
+Se monta el circuito mostrado en la Figura~\ref{fig:simulacion-transformador}, empleando una fuente de alimentación de 120 V a una frecuencia de 60 Hz. El multímetro se conectó en los puntos A y B, registrando en su pantalla la medición correspondiente.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.75\linewidth]{Figura 4.jpg}
@@ -131,7 +131,7 @@ Se registraron en la Tabla~\ref{tab:resultados-ac} los valores correspondientes 
 \end{table}
 
 \subsection{Metodología III: medición de frecuencia}
-Se conectó el generador de señales directamente al canal~1 del osciloscopio, manteniendo una disposición sencilla que facilitara la visualización de las formas de onda. A partir de esta conexión se fijaron los parámetros de la señal según lo indicado en la guía experimental: amplitud pico a pico de \SI{6}{\volt}, offset de \SI{0}{\volt} y desfase nulo. Posteriormente, se ajustó la base de tiempo del instrumento para conseguir una visualización estable de cada forma de onda.
+Se conectó el generador de señales directamente al canal~1 del osciloscopio, manteniendo una disposición sencilla que facilitara la visualización de las formas de onda. A partir de esta conexión se fijaron los parámetros de la señal con una amplitud pico a pico de \SI{6}{\volt}, offset de \SI{0}{\volt} y desfase nulo. Posteriormente, se ajustó la base de tiempo del instrumento para conseguir una visualización estable de cada forma de onda.
 Con la ayuda del generador se configuraron las señales enlistadas en la Tabla~\ref{tab:frecuencia}, registrando en el osciloscopio tanto la base de tiempo seleccionada (tiempo/división) como el período resultante. Las formas de onda obtenidas se muestran en las Figuras~\ref{fig:frecuencia-senoidal-100hz}--\ref{fig:frecuencia-rampa-1k5hz}, lo que permite comparar la respuesta del equipo frente a cambios en la frecuencia y el tipo de señal.%
 \begin{table}[htbp]
     \centering
@@ -200,7 +200,7 @@ De esta forma, en A se aprecia la señal de entrada, mientras que en B se regist
 \end{figure}
 
 \subsection{Metodología V: montaje del puente rectificador}
-Siguiendo la guía de laboratorio, se ensambló el circuito de puente de Graetz mostrado en la Figura~\ref{fig:rectificador-montaje}, utilizando el transformador reductor disponible para alimentar el arreglo de cuatro diodos y la resistencia de carga. Primero se conectó el osciloscopio a los nodos A y B, ubicados a la salida secundaria del transformador, con el fin de visualizar la señal senoidal de entrada. Posteriormente se reubicó la sonda en los puntos C y D, sobre la resistencia de carga, para observar la forma de onda rectificada y registrar los valores característicos solicitados en la práctica.
+Se ensambló el circuito de puente de Graetz mostrado en la Figura~\ref{fig:rectificador-montaje}, utilizando el transformador reductor disponible para alimentar el arreglo de cuatro diodos y la resistencia de carga. Primero se conectó el osciloscopio a los nodos A y B, ubicados a la salida secundaria del transformador, con el fin de visualizar la señal senoidal de entrada. Posteriormente se reubicó la sonda en los puntos C y D, sobre la resistencia de carga, para observar la forma de onda rectificada y registrar los valores característicos solicitados en la práctica.
 
 Para completar el procedimiento se retiró temporalmente el condensador de filtrado, repitiendo la medición en los puntos C y D. Esto permitió comparar la ondulación de la señal con y sin el elemento de filtro, además de estimar la frecuencia correspondiente a la componente pulsante observada en el osciloscopio. Finalmente, se replicó el montaje en el software de simulación empleado durante la práctica, conservando los mismos parámetros de alimentación y carga. Las Figuras~\ref{fig:rectificador-simulacion-ab} y~\ref{fig:rectificador-simulacion-cd} recogen las gráficas exportadas de la simulación para los puntos A-B y C-D, respectivamente, lo que facilita contrastar la respuesta teórica con las mediciones experimentales.
 
