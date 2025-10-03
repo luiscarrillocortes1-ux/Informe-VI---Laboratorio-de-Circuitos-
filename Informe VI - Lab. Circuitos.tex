@@ -172,7 +172,14 @@ Con la ayuda del generador se configuraron las señales enlistadas en la Tabla~\
     \label{fig:frecuencia-rampa-1k5hz}
 \end{figure}
 \subsection{Metodología IV: montaje de carga y descarga del condensador}
-En la práctica se prescindió del transformador planteado originalmente y se procedió a realizar las mediciones conectando de forma directa el generador de funciones al canal~1 del osciloscopio. La salida del generador se fijó con una onda cuadrada de \SI{5}{\volt} pico a pico y frecuencia de \SI{1}{\kilo\hertz}, utilizando el cable coaxial y el retorno a tierra del mismo instrumento para garantizar una referencia común. Sobre el protoboard únicamente se dispusieron la resistencia de \SI{1}{\kilo\ohm} y el condensador en serie, tomando con la sonda del osciloscopio el voltaje en el nodo del condensador para observar los transitorios de carga y descarga. La Figura~\ref{fig:montaje 4} muestra la simplicidad del arreglo empleado, mientras que las Figuras~\ref{fig:simulacion-rc-esquematico} y~\ref{fig:simulacion-rc-respuesta} provienen de la simulación utilizada para contrastar los resultados experimentales.
+El montaje inicia conectando el generador de señales en modo AC a la resistencia de 1 kΩ, y de allí al condensador de 1 µF que cierra el circuito hacia tierra. El generador debe configurarse para entregar una onda cuadrada de 100 Hz y 5 voltios pico a pico.
+
+La primera medición se realiza en el punto A, antes de la resistencia. Allí se observa directamente la onda cuadrada tal como la entrega el generador.
+
+Posteriormente, la medición se lleva al punto B, en la unión entre la resistencia y el condensador. En este nodo la forma de onda cambia: ya no es cuadrada, sino que se ven transiciones curvas con forma exponencial, propias de la carga y descarga del condensador.
+
+De esta forma, en A se aprecia la señal de entrada, mientras que en B se registra la respuesta del condensador frente a dicha señal.
+
 \begin{figure}[htbp]
     \centering
 \includegraphics[width=0.75\linewidth]{montaje 4.jpg}
