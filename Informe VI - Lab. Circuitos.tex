@@ -188,6 +188,24 @@ De esta forma, en A se aprecia la señal de entrada, mientras que en B se regist
 \end{figure}
 \begin{figure}[htbp]
     \centering
+\includegraphics[width=0.75\linewidth]{nodo a a tierra.JPG}
+    \caption{Nodo A a tierra}
+    \label{fig:montaje 4}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+\includegraphics[width=0.75\linewidth]{nodo b a tierra.JPG}
+    \caption{Nodo B a tierra}
+    \label{fig:montaje 4}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+\includegraphics[width=0.75\linewidth]{Nodo A y B superpuestos.jpg}
+    \caption{Nodo A y B superpuestos}
+    \label{fig:montaje 4}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
 \includegraphics[width=0.75\linewidth]{Simulacion 1.jpg}
     \caption{Simulación en el punto A}
     \label{fig:simulacion-rc-esquematico}
@@ -202,30 +220,59 @@ De esta forma, en A se aprecia la señal de entrada, mientras que en B se regist
 \subsection{Metodología V: montaje del puente rectificador}
 Se ensambló el circuito de puente de Graetz mostrado en la Figura~\ref{fig:rectificador-montaje}, utilizando el transformador reductor disponible para alimentar el arreglo de cuatro diodos y la resistencia de carga. Primero se conectó el osciloscopio a los nodos A y B, ubicados a la salida secundaria del transformador, con el fin de visualizar la señal senoidal de entrada. Posteriormente se reubicó la sonda en los puntos C y D, sobre la resistencia de carga, para observar la forma de onda rectificada y registrar los valores característicos solicitados en la práctica.
 
-Para completar el procedimiento se retiró temporalmente el condensador de filtrado, repitiendo la medición en los puntos C y D. Esto permitió comparar la ondulación de la señal con y sin el elemento de filtro, además de estimar la frecuencia correspondiente a la componente pulsante observada en el osciloscopio. Finalmente, se replicó el montaje en el software de simulación empleado durante la práctica, conservando los mismos parámetros de alimentación y carga. Las Figuras~\ref{fig:rectificador-simulacion-ab} y~\ref{fig:rectificador-simulacion-cd} recogen las gráficas exportadas de la simulación para los puntos A-B y C-D, respectivamente, lo que facilita contrastar la respuesta teórica con las mediciones experimentales.
+Para completar el procedimiento se retiró temporalmente el condensador, repitiendo la medición en los puntos C y D. Esto permitió comparar la ondulación de la señal con y sin el elemento de filtro, además de estimar la frecuencia correspondiente a la componente pulsante observada en el osciloscopio. Finalmente, se replicó el montaje en el software de simulación empleado durante la práctica, conservando los mismos parámetros de alimentación y carga. 
 
 \begin{figure}[htbp]
     \centering
-    \framebox[0.75\linewidth]{\rule{0pt}{3.5cm}}
+    \includegraphics[width=0.75\linewidth]{puente reductor.jpg}
     \caption{Montaje del puente rectificador sobre protoboard.}
     \label{fig:rectificador-montaje}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
+    \includegraphics[width=0.75\linewidth]{nodo a-b Luis.JPG}
+    \caption{Señal Nodo A-B}
+    \label{fig:rectificador-montaje}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\linewidth]{nodo c-d Luis.JPG}
+    \caption{Señal Nodo C-D}
+    \label{fig:rectificador-montaje}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\linewidth]{5 sin nodo.jpg}
+    \caption{Señal al retirar el nodo}
+    \label{fig:rectificador-montaje}
+\end{figure}
+
+
+\begin{figure}[htbp]
+    \centering
     \includegraphics[width=0.75\linewidth]{Rectificador AB.jpg}
-    \caption{Simulación del voltaje en los puntos A-B del transformador.}
+    \caption{Simulación del nodo A-B}
     \label{fig:rectificador-simulacion-ab}
 \end{figure}
+
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.75\linewidth]{Rectificador CD.jpg}
-    \caption{Simulación del voltaje rectificado en la carga (puntos C-D).}
-    \label{fig:rectificador-simulacion-cd}
+    \caption{Simulación del nodo C-D}
+    \label{fig:rectificador-simulacion-ab}
 \end{figure}
-\section{Resultados}
-\subsection{Figura de ejemplo}
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\linewidth]{5 sin nodo.jpg}
+    \caption{Circuito sin condensador}
+    \label{fig:rectificador-simulacion-ab}
+\end{figure}
+
+
 
 
 
@@ -235,8 +282,6 @@ Analiza implicaciones, limitaciones y posibles mejoras.
 \section{Conclusiones}
 Resumen de hallazgos y trabajo futuro.
 
-\section*{Agradecimientos}
-(Optativo) Reconoce apoyos, proyectos o personas.
 
 \begin{thebibliography}{00}
 
